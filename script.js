@@ -58,7 +58,7 @@ function openModal(model) {
     closeBtn.addEventListener("click", () => {
         modal.classList.add("hide");
     } )
-    modal.addEventListener("click", () => {
+    modal.onclick = () => {
         modal.classList.add("hide");
-    } )
+    }
 }
