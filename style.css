@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+main div {
+    margin: 20px;
+    padding: 15px 20px;
+    background-color: rgb(250, 253, 255);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(222, 222, 222, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(222, 222, 222, 1);
+    box-shadow: 0px 0px 5px 0px rgba(222, 222, 222, 1);
+    text-align: center;
+}
+
+img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
