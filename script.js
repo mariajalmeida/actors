@@ -12,9 +12,10 @@ function handleActors(actors) {
     myData.forEach(separateData);
 }
 
+const button = document.querySelectorAll("button");
+
 function separateData(data) {
     divideActors(data);
-    openModal(data);
 }
 
 function divideActors(singleActor) {
@@ -25,16 +26,25 @@ function divideActors(singleActor) {
     const actorName = clone.querySelector("h2");
     actorName.textContent = singleActor.fullname;
 
-    clone.querySelector("button").addEventListener("click", openModal);
+    clone.querySelector("button").classList.add(singleActor.id);
+
+    clone.querySelector("button").addEventListener("click", () => {
+        console.log("SEPARATE", singleActor)
+        fetch(singleActor)
+        .then(openModal);
+    })
 
     document.querySelector("main").appendChild(clone);
 }
 
 function openModal(e) {
+    console.log(e, "buenos");
     const template = document.querySelector("#modal").content;
     const clone = template.cloneNode(true);
 
-    const actorsMovie = clone.querySelector("h3");
+    const actorName = clone.querySelector("h3");
+    actorName.textContent = e.fullname;
+    const actorsMovie = clone.querySelector("h4");
     actorsMovie.textContent = e.movie;
     const img = e.img;
     clone.querySelector("img").src = img;
@@ -46,6 +56,9 @@ function openModal(e) {
     modal.classList.remove("hide");
     const closeBtn = document.querySelector("span");
     closeBtn.addEventListener("click", () => {
+        modal.classList.add("hide");
+    } )
+    modal.addEventListener("click", () => {
         modal.classList.add("hide");
     } )
 }
