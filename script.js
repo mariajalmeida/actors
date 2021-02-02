@@ -16,40 +16,40 @@ const button = document.querySelectorAll("button");
 
 function separateData(data) {
     divideActors(data);
+    // openModal(data);
 }
 
 function divideActors(singleActor) {
-
+    // console.log("single", singleActor)
     const template = document.querySelector("#actor").content;
     const clone = template.cloneNode(true);
 
     const actorName = clone.querySelector("h2");
     actorName.textContent = singleActor.fullname;
 
-    clone.querySelector("button").classList.add(singleActor.id);
-
-    clone.querySelector("button").addEventListener("click", () => {
-        console.log("SEPARATE", singleActor)
-        fetch(singleActor)
-        .then(openModal);
-    })
+    clone.querySelector("button").addEventListener("click", res => {
+        openModal(singleActor);
+    });
 
     document.querySelector("main").appendChild(clone);
 }
 
-function openModal(e) {
-    console.log(e, "buenos");
-    const template = document.querySelector("#modal").content;
-    const clone = template.cloneNode(true);
+function openModal(model) {
+    console.log(model, "buenos");
 
-    const actorName = clone.querySelector("h3");
-    actorName.textContent = e.fullname;
-    const actorsMovie = clone.querySelector("h4");
-    actorsMovie.textContent = e.movie;
-    const img = e.img;
-    clone.querySelector("img").src = img;
+    console.log(model.fullname, "FULL NAME");
 
-    document.querySelector("main").appendChild(clone);
+    // const template = document.querySelector("#actor").content;
+    // const clone = template.cloneNode(true);
+
+    const actorNames = document.querySelector("h3");
+    actorNames.textContent = model.fullname;
+    const actorsMovie = document.querySelector("h4");
+    actorsMovie.textContent = model.movie;
+    const img = model.img;
+    document.querySelector("img").src = img;
+
+    // document.querySelector("main").appendChild(clone);
 
 
     const modal = document.querySelector(".modal-background");
