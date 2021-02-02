@@ -11,11 +11,20 @@
 <body>
     <h1>List of actors</h1>
     <main></main>
-    <template>
-        <div class="card">
+    <template id="actor">
+        <button>
             <h2>Name</h2>
-            <img src="" alt="">
-            <h3>Movie</h3>
+        </button>
+    </template>
+    <template id="modal">
+        <div class="modal-background hide">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div class="card">
+                    <img src="" alt="">
+                    <h3>Movie</h3>
+                </div>
+            </div>
         </div>
     </template>
 
